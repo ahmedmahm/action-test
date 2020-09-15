@@ -1,0 +1,16 @@
+name: Delphai
+
+on: [push]
+
+jobs:
+  Example:
+    runs-on: ubuntu-latest
+    name: Example Action
+    steps:
+    - uses: actions/checkout@v2
+    - id: delphai
+      uses: ahmedmahm/json-action@master
+      with:
+        workspace_name: 'python'
+        resource_group:  'delphai-development'
+    - run: cat ${{ steps.delphai.outputs.workspace}}
